@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; libshortfin  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to libshortfin’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            libshortfin
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-_shortfin_default.lib.array">Array</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.array.DType"><code class="docutils literal notranslate"><span class="pre">DType</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.array.storage"><code class="docutils literal notranslate"><span class="pre">storage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.array.storage.allocate_device"><code class="docutils literal notranslate"><span class="pre">storage.allocate_device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.array.storage.allocate_host"><code class="docutils literal notranslate"><span class="pre">storage.allocate_host</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.array.storage.copy_from"><code class="docutils literal notranslate"><span class="pre">storage.copy_from</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.array.storage.fill"><code class="docutils literal notranslate"><span class="pre">storage.fill</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.array.storage.map"><code class="docutils literal notranslate"><span class="pre">storage.map</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.array.base_array"><code class="docutils literal notranslate"><span class="pre">base_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.array.device_array"><code class="docutils literal notranslate"><span class="pre">device_array</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-_shortfin_default.lib.local">Local</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.SystemBuilder"><code class="docutils literal notranslate"><span class="pre">SystemBuilder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.System"><code class="docutils literal notranslate"><span class="pre">System</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Device"><code class="docutils literal notranslate"><span class="pre">Device</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.DeviceAffinity"><code class="docutils literal notranslate"><span class="pre">DeviceAffinity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Program"><code class="docutils literal notranslate"><span class="pre">Program</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.ProgramFunction"><code class="docutils literal notranslate"><span class="pre">ProgramFunction</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.ProgramFunction.calling_convention"><code class="docutils literal notranslate"><span class="pre">ProgramFunction.calling_convention</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.ProgramFunction.invocation"><code class="docutils literal notranslate"><span class="pre">ProgramFunction.invocation</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.ProgramFunction.name"><code class="docutils literal notranslate"><span class="pre">ProgramFunction.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.ProgramModule"><code class="docutils literal notranslate"><span class="pre">ProgramModule</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.ProgramInvocation"><code class="docutils literal notranslate"><span class="pre">ProgramInvocation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Fiber"><code class="docutils literal notranslate"><span class="pre">Fiber</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.ScopedDevice"><code class="docutils literal notranslate"><span class="pre">ScopedDevice</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Worker"><code class="docutils literal notranslate"><span class="pre">Worker</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Process"><code class="docutils literal notranslate"><span class="pre">Process</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.CompletionEvent"><code class="docutils literal notranslate"><span class="pre">CompletionEvent</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Queue"><code class="docutils literal notranslate"><span class="pre">Queue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.QueueWriter"><code class="docutils literal notranslate"><span class="pre">QueueWriter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.QueueReader"><code class="docutils literal notranslate"><span class="pre">QueueReader</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.Future"><code class="docutils literal notranslate"><span class="pre">Future</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.VoidFuture"><code class="docutils literal notranslate"><span class="pre">VoidFuture</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shortfin_default.lib.local.MessageFuture"><code class="docutils literal notranslate"><span class="pre">MessageFuture</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-_shortfin_default.lib.local.amdgpu">AMD GPU</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.amdgpu.SystemBuilder"><code class="docutils literal notranslate"><span class="pre">SystemBuilder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.amdgpu.AMDGPUDevice"><code class="docutils literal notranslate"><span class="pre">AMDGPUDevice</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-_shortfin_default.lib.local.host">Host</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.host.CPUSystemBuilder"><code class="docutils literal notranslate"><span class="pre">CPUSystemBuilder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortfin_default.lib.local.host.HostCPUDevice"><code class="docutils literal notranslate"><span class="pre">HostCPUDevice</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">libshortfin</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<span id="reference"></span><span id="module-_shortfin_default.lib"></span><h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<section id="module-_shortfin_default.lib.array">
+<span id="array"></span><h2>Array<a class="headerlink" href="#module-_shortfin_default.lib.array" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.DType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.array.</span></span><span class="sig-name descname"><span class="pre">DType</span></span><a class="headerlink" href="#shortfin_default.lib.array.DType" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.array.</span></span><span class="sig-name descname"><span class="pre">storage</span></span><a class="headerlink" href="#shortfin_default.lib.array.storage" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage.allocate_device">
+<span class="sig-name descname"><span class="pre">allocate_device</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;nanobind.nb_func</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#shortfin_default.lib.array.storage.allocate_device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage.allocate_host">
+<span class="sig-name descname"><span class="pre">allocate_host</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;nanobind.nb_func</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#shortfin_default.lib.array.storage.allocate_host" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage.copy_from">
+<span class="sig-name descname"><span class="pre">copy_from</span></span><a class="headerlink" href="#shortfin_default.lib.array.storage.copy_from" title="Link to this definition"></a></dt>
+<dd><p>Copy contents from a source storage to this array.</p>
+<p>This operation executes asynchronously and the effect will only be visible
+once the execution fiber has been synced to the point of mutation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><a class="headerlink" href="#shortfin_default.lib.array.storage.fill" title="Link to this definition"></a></dt>
+<dd><p>Fill a storage with a value.</p>
+<p>Takes as argument any value that can be interpreted as a buffer with the Python
+buffer protocol of size 1, 2, or 4 bytes. The storage will be filled uniformly
+with the pattern.</p>
+<p>This operation executes asynchronously and the effect will only be visible
+once the execution fiber has been synced to the point of mutation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.storage.map">
+<span class="sig-name descname"><span class="pre">map</span></span><a class="headerlink" href="#shortfin_default.lib.array.storage.map" title="Link to this definition"></a></dt>
+<dd><p>Create a mapping of the buffer contents in host memory.</p>
+<p>Support kwargs of:</p>
+<div class="line-block">
+<div class="line">read: Enables read access to the mapped memory.</div>
+<div class="line">write: Enables write access to the mapped memory and will flush upon close
+(for non-unified memory systems).</div>
+<div class="line">discard: Indicates that the entire memory map should be treated as if it will
+be overwritten. Initial contents will be undefined. Implies <cite>write=True</cite>.</div>
+</div>
+<p>Mapping memory for access from the host requires a compatible buffer that has
+been created with host visibility (which includes host buffers).</p>
+<p>The returned mapping object is a context manager that will close/flush on
+exit. Alternatively, the <cite>close()</cite> method can be invoked explicitly.</p>
+<p>See also <cite>device_array.map()</cite> which functions similarly but allows some
+additional dtype specific accessors.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.base_array">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.array.</span></span><span class="sig-name descname"><span class="pre">base_array</span></span><a class="headerlink" href="#shortfin_default.lib.array.base_array" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.array.device_array">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.array.</span></span><span class="sig-name descname"><span class="pre">device_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.array.device_array" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-_shortfin_default.lib.local">
+<span id="local"></span><h2>Local<a class="headerlink" href="#module-_shortfin_default.lib.local" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.SystemBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">SystemBuilder</span></span><a class="headerlink" href="#shortfin_default.lib.local.SystemBuilder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.System">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">System</span></span><a class="headerlink" href="#shortfin_default.lib.local.System" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><a class="headerlink" href="#shortfin_default.lib.local.Node" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Device">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Device</span></span><a class="headerlink" href="#shortfin_default.lib.local.Device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.DeviceAffinity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">DeviceAffinity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.DeviceAffinity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Program">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Program</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.Program" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">ProgramFunction</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramFunction" title="Link to this definition"></a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramFunction.calling_convention">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calling_convention</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramFunction.calling_convention" title="Link to this definition"></a></dt>
+<dd><p>(self) -&gt; str</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramFunction.invocation">
+<span class="sig-name descname"><span class="pre">invocation</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramFunction.invocation" title="Link to this definition"></a></dt>
+<dd><p>Creates an invocation object targeting the function.</p>
+<p>This is a low-level interface for performing an invocation, and it should be
+used when precise, non-default control is needed.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramFunction.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramFunction.name" title="Link to this definition"></a></dt>
+<dd><p>(self) -&gt; str</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">ProgramModule</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramModule" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ProgramInvocation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">ProgramInvocation</span></span><a class="headerlink" href="#shortfin_default.lib.local.ProgramInvocation" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Fiber">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Fiber</span></span><a class="headerlink" href="#shortfin_default.lib.local.Fiber" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.ScopedDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">ScopedDevice</span></span><a class="headerlink" href="#shortfin_default.lib.local.ScopedDevice" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Worker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Worker</span></span><a class="headerlink" href="#shortfin_default.lib.local.Worker" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Process">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.Process" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.CompletionEvent">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">CompletionEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.CompletionEvent" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Message">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.Message" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Queue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><a class="headerlink" href="#shortfin_default.lib.local.Queue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.QueueWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">QueueWriter</span></span><a class="headerlink" href="#shortfin_default.lib.local.QueueWriter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.QueueReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">QueueReader</span></span><a class="headerlink" href="#shortfin_default.lib.local.QueueReader" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.Future">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">Future</span></span><a class="headerlink" href="#shortfin_default.lib.local.Future" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.VoidFuture">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">VoidFuture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.VoidFuture" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.MessageFuture">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.</span></span><span class="sig-name descname"><span class="pre">MessageFuture</span></span><a class="headerlink" href="#shortfin_default.lib.local.MessageFuture" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<section id="module-_shortfin_default.lib.local.amdgpu">
+<span id="amd-gpu"></span><h3>AMD GPU<a class="headerlink" href="#module-_shortfin_default.lib.local.amdgpu" title="Link to this heading"></a></h3>
+<p>AMDGPU system config</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.amdgpu.SystemBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.amdgpu.</span></span><span class="sig-name descname"><span class="pre">SystemBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.amdgpu.SystemBuilder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.amdgpu.AMDGPUDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.amdgpu.</span></span><span class="sig-name descname"><span class="pre">AMDGPUDevice</span></span><a class="headerlink" href="#shortfin_default.lib.local.amdgpu.AMDGPUDevice" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-_shortfin_default.lib.local.host">
+<span id="host"></span><h3>Host<a class="headerlink" href="#module-_shortfin_default.lib.local.host" title="Link to this heading"></a></h3>
+<p>Host device management</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.host.CPUSystemBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.host.</span></span><span class="sig-name descname"><span class="pre">CPUSystemBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shortfin_default.lib.local.host.CPUSystemBuilder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="shortfin_default.lib.local.host.HostCPUDevice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_shortfin_default.lib.local.host.</span></span><span class="sig-name descname"><span class="pre">HostCPUDevice</span></span><a class="headerlink" href="#shortfin_default.lib.local.host.HostCPUDevice" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to libshortfin’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Advanced Micro Devices, Inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
