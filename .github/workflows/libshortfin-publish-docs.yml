@@ -1,0 +1,71 @@
+# Copyright 2024 Advanced Micro Devices, Inc.
+#
+# Licensed under the Apache License v2.0 with LLVM Exceptions.
+# See https://llvm.org/LICENSE.txt for license information.
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+name: Publish libshortfin documentation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  IREE_REPO_DIR: ${{ github.workspace }}/iree
+  LIBSHORTFIN_DIR: ${{ github.workspace }}/libshortfin/
+
+jobs:
+  deploy-api-documentation:
+    name: Deploy API documentation
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+
+    steps:
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install clang lld cmake ninja-build
+
+    - name: Checkout repository
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      with:
+        submodules: false
+
+    - name: Setup Python
+      uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
+      with:
+        python-version: "3.12"
+        cache: "pip"
+    - name: Install Python packages
+      run: |
+        pip install -r ${{ env.LIBSHORTFIN_DIR }}/docs/requirements.txt
+        pip freeze
+    
+    - name: Build libshortfin
+      run: |
+        mkdir ${{ env.LIBSHORTFIN_DIR }}/build
+        cd ${{ env.LIBSHORTFIN_DIR }}/build
+        cmake -GNinja \
+          -DCMAKE_C_COMPILER=clang-18 \
+          -DCMAKE_CXX_COMPILER=clang++-18 \
+          -DCMAKE_LINKER_TYPE=LLD \
+          -DSHORTFIN_BUNDLE_DEPS=ON \
+          -DSHORTFIN_BUILD_PYTHON_BINDINGS=ON \
+          ..
+        cmake --build . --target all
+
+    - name: Sphinx build
+      run: |
+        cd ${{ env.LIBSHORTFIN_DIR }}/docs
+        sphinx-build -b html . _build
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+      with:
+        publish_branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ env.LIBSHORTFIN_DIR }}/docs/_build/
+        force_orphan: true
