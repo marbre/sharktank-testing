@@ -21,7 +21,7 @@ jobs:
     name: Deploy API documentation
     runs-on: ubuntu-24.04
     permissions:
-      pages: write
+      contents: write
 
     steps:
     - name: Install dependencies
